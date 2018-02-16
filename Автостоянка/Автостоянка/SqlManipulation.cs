@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Автостоянка
 {
@@ -14,8 +15,14 @@ namespace Автостоянка
             var mFill = da.GetType().GetMethods()
                 .FirstOrDefault(q => q.Name == "Fill" && q.GetParameters().Any(p => p.ParameterType.IsSubclassOf(typeof(DataTable))));
             if (mFill == null) return;
-
-            mFill.Invoke(da, new[] { dt });
+            //try
+            //{
+                mFill.Invoke(da, new[] { dt });
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show(e.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
         public static void Update(DataSet ds, object da, DataTable dt)
         {
@@ -23,8 +30,14 @@ namespace Автостоянка
             var mUpdate = da.GetType().GetMethods()
                 .FirstOrDefault(q => q.Name == "Update" && q.GetParameters().Any(p => p.ParameterType.IsSubclassOf(typeof(DataTable))));
             if (mUpdate == null) return;
-
-            mUpdate.Invoke(da, new[] { dt });
+            //try
+            //{
+                mUpdate.Invoke(da, new[] { dt });
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show(e.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             Fill(ds, da, dt);
         }
     }

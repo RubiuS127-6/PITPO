@@ -92,7 +92,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "ПарковочныеМеста";
             this.Text = "Парковочные места";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.парковочноеМестоBindingSource)).EndInit();

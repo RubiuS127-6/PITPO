@@ -58,7 +58,7 @@
             this.КлиентыButton.Size = new System.Drawing.Size(73, 24);
             this.КлиентыButton.Text = "Клиенты";
             this.КлиентыButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.КлиентыButton.Click += new System.EventHandler(this.КлиентыButton_Click);
+            this.КлиентыButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // toolStripButton1
             // 
@@ -68,7 +68,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(55, 24);
             this.toolStripButton1.Text = "Места";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripButton1.Click += new System.EventHandler(this.Button_Click);
             // 
             // toolStripButton2
             // 
@@ -78,7 +78,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(158, 24);
             this.toolStripButton2.Text = "Единицы измерения";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.toolStripButton2.Click += new System.EventHandler(this.Button_Click);
             // 
             // MainForm
             // 

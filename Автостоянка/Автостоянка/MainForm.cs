@@ -14,21 +14,20 @@ namespace Автостоянка
         public MainForm()
         {
             InitializeComponent();
+            КлиентыButton.Tag = typeof(Клиенты);
+            toolStripButton1.Tag = typeof(ПарковочныеМеста);
+            toolStripButton2.Tag = typeof(ЕдИзмВремени);
         }
 
-        private void КлиентыButton_Click(object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
-            (new Клиенты() { MdiParent = this }).Show();
-        }
+            var b = sender as ToolStripButton;
+            if (b == null) return;
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            (new ПарковочныеМеста() { MdiParent = this }).Show();
-        }
+            var t = b.Tag as Type;
+            if (t == null) return;
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            (new ЕдИзмВремени() { MdiParent = this }).Show();
+            FormManager.Instance.OpenForm(t);
         }
     }
 }

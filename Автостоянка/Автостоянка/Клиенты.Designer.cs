@@ -30,13 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.номерDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.парковочноеМестоBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.КлиентBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.автостоянкаDataSet1 = new Автостоянка.АвтостоянкаDataSet();
-            this.парковочное_местоTableAdapter = new Автостоянка.АвтостоянкаDataSetTableAdapters.Парковочное_местоTableAdapter();
+            this.КлиентTableAdapter = new Автостоянка.АвтостоянкаDataSetTableAdapters.КлиентTableAdapter();
+            this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.примечаниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.парковочноеМестоBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.КлиентBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.автостоянкаDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,8 +48,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.кодDataGridViewTextBoxColumn,
-            this.номерDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.парковочноеМестоBindingSource;
+            this.фИОDataGridViewTextBoxColumn,
+            this.серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn,
+            this.примечаниеDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.КлиентBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -56,6 +60,20 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowValidated);
             // 
+            // КлиентBindingSource
+            // 
+            this.КлиентBindingSource.DataMember = "Клиент";
+            this.КлиентBindingSource.DataSource = this.автостоянкаDataSet1;
+            // 
+            // автостоянкаDataSet1
+            // 
+            this.автостоянкаDataSet1.DataSetName = "АвтостоянкаDataSet";
+            this.автостоянкаDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // КлиентTableAdapter
+            // 
+            this.КлиентTableAdapter.ClearBeforeFill = true;
+            // 
             // кодDataGridViewTextBoxColumn
             // 
             this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
@@ -63,39 +81,40 @@
             this.кодDataGridViewTextBoxColumn.Name = "кодDataGridViewTextBoxColumn";
             this.кодDataGridViewTextBoxColumn.Visible = false;
             // 
-            // номерDataGridViewTextBoxColumn
+            // фИОDataGridViewTextBoxColumn
             // 
-            this.номерDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.номерDataGridViewTextBoxColumn.DataPropertyName = "Номер";
-            this.номерDataGridViewTextBoxColumn.HeaderText = "Номер";
-            this.номерDataGridViewTextBoxColumn.Name = "номерDataGridViewTextBoxColumn";
+            this.фИОDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.фИОDataGridViewTextBoxColumn.DataPropertyName = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.Name = "фИОDataGridViewTextBoxColumn";
+            this.фИОDataGridViewTextBoxColumn.Width = 71;
             // 
-            // парковочноеМестоBindingSource
+            // серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn
             // 
-            this.парковочноеМестоBindingSource.DataMember = "Парковочное место";
-            this.парковочноеМестоBindingSource.DataSource = this.автостоянкаDataSet1;
+            this.серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn.DataPropertyName = "Серия и номер удостоверения личности";
+            this.серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn.HeaderText = "Серия и номер удостоверения личности";
+            this.серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn.Name = "серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn";
+            this.серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn.Width = 221;
             // 
-            // автостоянкаDataSet1
+            // примечаниеDataGridViewTextBoxColumn
             // 
-            this.автостоянкаDataSet1.DataSetName = "АвтостоянкаDataSet";
-            this.автостоянкаDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.примечаниеDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.примечаниеDataGridViewTextBoxColumn.DataPropertyName = "Примечание";
+            this.примечаниеDataGridViewTextBoxColumn.HeaderText = "Примечание";
+            this.примечаниеDataGridViewTextBoxColumn.Name = "примечаниеDataGridViewTextBoxColumn";
             // 
-            // парковочное_местоTableAdapter
-            // 
-            this.парковочное_местоTableAdapter.ClearBeforeFill = true;
-            // 
-            // ПарковочныеМеста
+            // Клиенты
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 449);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "ПарковочныеМеста";
-            this.Text = "Парковочные места";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.Name = "Клиенты";
+            this.Text = "Клиенты";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.парковочноеМестоBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.КлиентBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.автостоянкаDataSet1)).EndInit();
             this.ResumeLayout(false);
 
@@ -106,10 +125,13 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private АвтостоянкаDataSet АвтостоянкаDataSet;
         private АвтостоянкаDataSet автостоянкаDataSet1;
-        private АвтостоянкаDataSetTableAdapters.Парковочное_местоTableAdapter парковочное_местоTableAdapter;
-        private System.Windows.Forms.BindingSource парковочноеМестоBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
+        private АвтостоянкаDataSetTableAdapters.КлиентTableAdapter КлиентTableAdapter;
+        private System.Windows.Forms.BindingSource КлиентBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn номерDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn примечаниеDataGridViewTextBoxColumn;
     }
 }
 
