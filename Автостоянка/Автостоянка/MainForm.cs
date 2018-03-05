@@ -15,8 +15,11 @@ namespace Автостоянка
         {
             InitializeComponent();
             КлиентыButton.Tag = typeof(Клиенты);
-            toolStripButton1.Tag = typeof(ПарковочныеМеста);
-            toolStripButton2.Tag = typeof(ЕдИзмВремени);
+            МестаToolStripButton.Tag = typeof(ПарковочныеМеста);
+            ЕдИзмВремToolStripButton.Tag = typeof(ЕдИзмВремени);
+            АвтомобилиToolStripButton.Tag = typeof(Автомобили);
+            КатегорииToolStripButton.Tag = typeof(Категории);
+            СтоянкаToolStripButton.Tag = typeof(Стоянка);
         }
 
         private void Button_Click(object sender, EventArgs e)

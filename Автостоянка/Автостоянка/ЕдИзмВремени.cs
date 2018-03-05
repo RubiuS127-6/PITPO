@@ -11,23 +11,19 @@ namespace Автостоянка
 {
     public partial class ЕдИзмВремени : BaseForm
     {
-
-
         public ЕдИзмВремени()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SqlManipulation.Fill(автостоянкаDataSet1, ЕдИзмВремениTableAdapter, автостоянкаDataSet1.ЕдИзмВремени);
+            ЕдИзмВремениTableAdapter.Fill(автостоянкаDataSet1.ЕдИзмВремени);
         }
 
         private void dataGridView1_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
             SqlManipulation.Update(автостоянкаDataSet1, ЕдИзмВремениTableAdapter, автостоянкаDataSet1.ЕдИзмВремени);
-
         }
     }
 }

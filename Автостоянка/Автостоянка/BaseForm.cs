@@ -63,8 +63,6 @@ namespace Автостоянка
         {
         }
 
-        public virtual void Close() { Close(); }
-
         #endregion
     }
 }

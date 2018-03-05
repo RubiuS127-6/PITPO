@@ -14,12 +14,11 @@ namespace Автостоянка
         public Клиенты()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SqlManipulation.Fill(автостоянкаDataSet1, КлиентTableAdapter, автостоянкаDataSet1.Клиент);
+            КлиентTableAdapter.Fill(автостоянкаDataSet1.Клиент);
         }
 
         private void dataGridView1_RowValidated(object sender, DataGridViewCellEventArgs e)

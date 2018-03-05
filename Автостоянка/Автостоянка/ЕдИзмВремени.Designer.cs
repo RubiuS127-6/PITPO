@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ЕдИзмВремениBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.автостоянкаDataSet1 = new Автостоянка.АвтостоянкаDataSet();
-            this.ЕдИзмВремениTableAdapter = new Автостоянка.АвтостоянкаDataSetTableAdapters.ЕдИзмВремениTableAdapter();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.наименованиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.базоваяСтоимостьDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ЕдИзмВремениBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.автостоянкаDataSet1 = new Автостоянка.АвтостоянкаDataSet();
+            this.ЕдИзмВремениTableAdapter = new Автостоянка.АвтостоянкаDataSetTableAdapters.ЕдИзмВремениTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ЕдИзмВремениBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.автостоянкаDataSet1)).BeginInit();
@@ -52,25 +52,12 @@
             this.dataGridView1.DataSource = this.ЕдИзмВремениBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(660, 449);
+            this.dataGridView1.Size = new System.Drawing.Size(495, 365);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowValidated);
-            // 
-            // ЕдИзмВремениBindingSource
-            // 
-            this.ЕдИзмВремениBindingSource.DataMember = "ЕдИзмВремени";
-            this.ЕдИзмВремениBindingSource.DataSource = this.автостоянкаDataSet1;
-            // 
-            // автостоянкаDataSet1
-            // 
-            this.автостоянкаDataSet1.DataSetName = "АвтостоянкаDataSet";
-            this.автостоянкаDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ЕдИзмВремениTableAdapter
-            // 
-            this.ЕдИзмВремениTableAdapter.ClearBeforeFill = true;
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -94,14 +81,29 @@
             this.базоваяСтоимостьDataGridViewTextBoxColumn.Name = "базоваяСтоимостьDataGridViewTextBoxColumn";
             this.базоваяСтоимостьDataGridViewTextBoxColumn.Width = 200;
             // 
+            // ЕдИзмВремениBindingSource
+            // 
+            this.ЕдИзмВремениBindingSource.DataMember = "ЕдИзмВремени";
+            this.ЕдИзмВремениBindingSource.DataSource = this.автостоянкаDataSet1;
+            // 
+            // автостоянкаDataSet1
+            // 
+            this.автостоянкаDataSet1.DataSetName = "АвтостоянкаDataSet";
+            this.автостоянкаDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ЕдИзмВремениTableAdapter
+            // 
+            this.ЕдИзмВремениTableAdapter.ClearBeforeFill = true;
+            // 
             // ЕдИзмВремени
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 449);
+            this.ClientSize = new System.Drawing.Size(495, 365);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ЕдИзмВремени";
-            this.Text = "Парковочные места";
+            this.Text = "Единицы измерения времени стоянки";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ЕдИзмВремениBindingSource)).EndInit();

@@ -16,7 +16,6 @@ namespace Автостоянка
         [STAThread]
         static void Main()
         {
-
             AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
             Application.ThreadException += OnThreadException;
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
@@ -25,6 +24,7 @@ namespace Автостоянка
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             try
             {
                 Application.Run(new MainForm());
@@ -38,6 +38,7 @@ namespace Автостоянка
                 MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private static void OnThreadException(object sender, ThreadExceptionEventArgs e)
         {
             MessageBox.Show(GetExceptionErrorText(e.Exception), "Thread exception", MessageBoxButtons.OK, MessageBoxIcon.Error);

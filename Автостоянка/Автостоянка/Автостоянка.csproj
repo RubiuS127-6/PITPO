@@ -45,6 +45,7 @@
     <Compile Include="BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DataGridViewCellFormatting.cs" />
     <Compile Include="FormManager.cs" />
     <Compile Include="IFormManager.cs" />
     <Compile Include="SqlManipulation.cs" />
@@ -55,6 +56,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>АвтостоянкаDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Автомобили.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Автомобили.Designer.cs">
+      <DependentUpon>Автомобили.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Категории.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Категории.Designer.cs">
+      <DependentUpon>Категории.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Стоянка.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Стоянка.Designer.cs">
+      <DependentUpon>Стоянка.cs</DependentUpon>
     </Compile>
     <Compile Include="ПарковочныеМеста.cs">
       <SubType>Form</SubType>
@@ -82,6 +101,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Автомобили.resx">
+      <DependentUpon>Автомобили.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Категории.resx">
+      <DependentUpon>Категории.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Стоянка.resx">
+      <DependentUpon>Стоянка.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ПарковочныеМеста.resx">
       <DependentUpon>ПарковочныеМеста.cs</DependentUpon>
     </EmbeddedResource>

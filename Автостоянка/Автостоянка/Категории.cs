@@ -9,21 +9,21 @@ using System.Windows.Forms;
 
 namespace Автостоянка
 {
-    public partial class ПарковочныеМеста : BaseForm
+    public partial class Категории : BaseForm
     {
-        public ПарковочныеМеста()
+        public Категории()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            парковочное_местоTableAdapter.Fill(автостоянкаDataSet1.Парковочное_место);
+            КатегорияTableAdapter.Fill(автостоянкаDataSet1.Категория);
         }
 
         private void dataGridView1_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            SqlManipulation.Update(автостоянкаDataSet1, парковочное_местоTableAdapter, автостоянкаDataSet1.Парковочное_место);
+            SqlManipulation.Update(автостоянкаDataSet1, КатегорияTableAdapter, автостоянкаDataSet1.Категория);
         }
     }
 }

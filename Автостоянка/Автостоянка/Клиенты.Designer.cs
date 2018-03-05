@@ -123,11 +123,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private АвтостоянкаDataSet АвтостоянкаDataSet;
         private АвтостоянкаDataSet автостоянкаDataSet1;
         private АвтостоянкаDataSetTableAdapters.КлиентTableAdapter КлиентTableAdapter;
         private System.Windows.Forms.BindingSource КлиентBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn номерDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn серияИНомерУдостоверенияЛичностиDataGridViewTextBoxColumn;

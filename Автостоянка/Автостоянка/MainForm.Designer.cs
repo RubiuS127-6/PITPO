@@ -30,9 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.МестаToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ЕдИзмВремToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.КлиентыButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.АвтомобилиToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.КатегорииToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.СтоянкаToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,13 +44,34 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.КлиентыButton,
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.МестаToolStripButton,
+            this.КатегорииToolStripButton,
+            this.АвтомобилиToolStripButton,
+            this.ЕдИзмВремToolStripButton,
+            this.СтоянкаToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(660, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(634, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // МестаToolStripButton
+            // 
+            this.МестаToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.МестаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.МестаToolStripButton.Name = "МестаToolStripButton";
+            this.МестаToolStripButton.Size = new System.Drawing.Size(45, 22);
+            this.МестаToolStripButton.Text = "Места";
+            this.МестаToolStripButton.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // ЕдИзмВремToolStripButton
+            // 
+            this.ЕдИзмВремToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ЕдИзмВремToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ЕдИзмВремToolStripButton.Name = "ЕдИзмВремToolStripButton";
+            this.ЕдИзмВремToolStripButton.Size = new System.Drawing.Size(123, 22);
+            this.ЕдИзмВремToolStripButton.Text = "Единицы измерения";
+            this.ЕдИзмВремToolStripButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // КлиентыButton
             // 
@@ -55,38 +79,45 @@
             this.КлиентыButton.Image = ((System.Drawing.Image)(resources.GetObject("КлиентыButton.Image")));
             this.КлиентыButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.КлиентыButton.Name = "КлиентыButton";
-            this.КлиентыButton.Size = new System.Drawing.Size(73, 24);
+            this.КлиентыButton.Size = new System.Drawing.Size(59, 22);
             this.КлиентыButton.Text = "Клиенты";
             this.КлиентыButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.КлиентыButton.Click += new System.EventHandler(this.Button_Click);
             // 
-            // toolStripButton1
+            // АвтомобилиToolStripButton
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(55, 24);
-            this.toolStripButton1.Text = "Места";
-            this.toolStripButton1.Click += new System.EventHandler(this.Button_Click);
+            this.АвтомобилиToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.АвтомобилиToolStripButton.Name = "АвтомобилиToolStripButton";
+            this.АвтомобилиToolStripButton.Size = new System.Drawing.Size(81, 22);
+            this.АвтомобилиToolStripButton.Text = "Автомобили";
+            this.АвтомобилиToolStripButton.Click += new System.EventHandler(this.Button_Click);
             // 
-            // toolStripButton2
+            // КатегорииToolStripButton
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(158, 24);
-            this.toolStripButton2.Text = "Единицы измерения";
-            this.toolStripButton2.Click += new System.EventHandler(this.Button_Click);
+            this.КатегорииToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.КатегорииToolStripButton.Name = "КатегорииToolStripButton";
+            this.КатегорииToolStripButton.Size = new System.Drawing.Size(68, 22);
+            this.КатегорииToolStripButton.Text = "Категории";
+            this.КатегорииToolStripButton.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // СтоянкаToolStripButton
+            // 
+            this.СтоянкаToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.СтоянкаToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("СтоянкаToolStripButton.Image")));
+            this.СтоянкаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.СтоянкаToolStripButton.Name = "СтоянкаToolStripButton";
+            this.СтоянкаToolStripButton.Size = new System.Drawing.Size(56, 22);
+            this.СтоянкаToolStripButton.Text = "Стоянка";
+            this.СтоянкаToolStripButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 449);
+            this.ClientSize = new System.Drawing.Size(634, 365);
             this.Controls.Add(this.toolStrip1);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Автостоянка";
             this.toolStrip1.ResumeLayout(false);
@@ -100,8 +131,11 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton КлиентыButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton МестаToolStripButton;
+        private System.Windows.Forms.ToolStripButton ЕдИзмВремToolStripButton;
+        private System.Windows.Forms.ToolStripButton АвтомобилиToolStripButton;
+        private System.Windows.Forms.ToolStripButton КатегорииToolStripButton;
+        private System.Windows.Forms.ToolStripButton СтоянкаToolStripButton;
     }
 }
 

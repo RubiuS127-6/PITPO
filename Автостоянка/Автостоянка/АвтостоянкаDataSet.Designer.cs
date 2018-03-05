@@ -38,17 +38,17 @@ namespace Автостоянка {
         
         private ЕдИзмВремениDataTable tableЕдИзмВремени;
         
-        private global::System.Data.DataRelation relationFK_Категория_Автомобиль;
-        
         private global::System.Data.DataRelation relationFK_Клиент_Автомобиль;
         
-        private global::System.Data.DataRelation relationFK_Стоянка_Стоянки_Парковочные_места;
+        private global::System.Data.DataRelation relationFK_Категория_Автомобиль;
         
         private global::System.Data.DataRelation relationFK_Парковочное_место_Стоянки_Парковочные_места;
         
-        private global::System.Data.DataRelation relationFK_Автомобиль_Стоянка;
+        private global::System.Data.DataRelation relationFK_Стоянка_Стоянки_Парковочные_места;
         
         private global::System.Data.DataRelation relationFK_ЕдИзмВремени_Стоянка;
+        
+        private global::System.Data.DataRelation relationFK_Автомобиль_Стоянка;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -350,12 +350,12 @@ namespace Автостоянка {
                     this.tableЕдИзмВремени.InitVars();
                 }
             }
-            this.relationFK_Категория_Автомобиль = this.Relations["FK_Категория_Автомобиль"];
             this.relationFK_Клиент_Автомобиль = this.Relations["FK_Клиент_Автомобиль"];
-            this.relationFK_Стоянка_Стоянки_Парковочные_места = this.Relations["FK_Стоянка_Стоянки_Парковочные места"];
+            this.relationFK_Категория_Автомобиль = this.Relations["FK_Категория_Автомобиль"];
             this.relationFK_Парковочное_место_Стоянки_Парковочные_места = this.Relations["FK_Парковочное место_Стоянки_Парковочные места"];
-            this.relationFK_Автомобиль_Стоянка = this.Relations["FK_Автомобиль_Стоянка"];
+            this.relationFK_Стоянка_Стоянки_Парковочные_места = this.Relations["FK_Стоянка_Стоянки_Парковочные места"];
             this.relationFK_ЕдИзмВремени_Стоянка = this.Relations["FK_ЕдИзмВремени_Стоянка"];
+            this.relationFK_Автомобиль_Стоянка = this.Relations["FK_Автомобиль_Стоянка"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -363,7 +363,7 @@ namespace Автостоянка {
         private void InitClass() {
             this.DataSetName = "АвтостоянкаDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/АвтостоянкаDataSet.xsd";
+            this.Namespace = "АвтостоянкаDataSet";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableАвтомобиль = new АвтомобильDataTable();
@@ -381,13 +381,6 @@ namespace Автостоянка {
             this.tableЕдИзмВремени = new ЕдИзмВремениDataTable();
             base.Tables.Add(this.tableЕдИзмВремени);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Категория_Автомобиль", new global::System.Data.DataColumn[] {
-                        this.tableКатегория.КодColumn}, new global::System.Data.DataColumn[] {
-                        this.tableАвтомобиль.ID_категорииColumn});
-            this.tableАвтомобиль.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_Клиент_Автомобиль", new global::System.Data.DataColumn[] {
                         this.tableКлиент.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableАвтомобиль.ID_клиентаColumn});
@@ -395,10 +388,10 @@ namespace Автостоянка {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Стоянка_Стоянки_Парковочные места", new global::System.Data.DataColumn[] {
-                        this.tableСтоянка.КодColumn}, new global::System.Data.DataColumn[] {
-                        this.tableСтоянки_Парковочные_места.ID_СтоянкиColumn});
-            this.tableСтоянки_Парковочные_места.Constraints.Add(fkc);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Категория_Автомобиль", new global::System.Data.DataColumn[] {
+                        this.tableКатегория.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableАвтомобиль.ID_категорииColumn});
+            this.tableАвтомобиль.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
@@ -409,10 +402,10 @@ namespace Автостоянка {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Автомобиль_Стоянка", new global::System.Data.DataColumn[] {
-                        this.tableАвтомобиль.КодColumn}, new global::System.Data.DataColumn[] {
-                        this.tableСтоянка.ID_АвтомобиляColumn});
-            this.tableСтоянка.Constraints.Add(fkc);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Стоянка_Стоянки_Парковочные места", new global::System.Data.DataColumn[] {
+                        this.tableСтоянка.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableСтоянки_Парковочные_места.ID_СтоянкиColumn});
+            this.tableСтоянки_Парковочные_места.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
@@ -423,30 +416,37 @@ namespace Автостоянка {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            this.relationFK_Категория_Автомобиль = new global::System.Data.DataRelation("FK_Категория_Автомобиль", new global::System.Data.DataColumn[] {
-                        this.tableКатегория.КодColumn}, new global::System.Data.DataColumn[] {
-                        this.tableАвтомобиль.ID_категорииColumn}, false);
-            this.Relations.Add(this.relationFK_Категория_Автомобиль);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Автомобиль_Стоянка", new global::System.Data.DataColumn[] {
+                        this.tableАвтомобиль.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableСтоянка.ID_АвтомобиляColumn});
+            this.tableСтоянка.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
             this.relationFK_Клиент_Автомобиль = new global::System.Data.DataRelation("FK_Клиент_Автомобиль", new global::System.Data.DataColumn[] {
                         this.tableКлиент.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableАвтомобиль.ID_клиентаColumn}, false);
             this.Relations.Add(this.relationFK_Клиент_Автомобиль);
-            this.relationFK_Стоянка_Стоянки_Парковочные_места = new global::System.Data.DataRelation("FK_Стоянка_Стоянки_Парковочные места", new global::System.Data.DataColumn[] {
-                        this.tableСтоянка.КодColumn}, new global::System.Data.DataColumn[] {
-                        this.tableСтоянки_Парковочные_места.ID_СтоянкиColumn}, false);
-            this.Relations.Add(this.relationFK_Стоянка_Стоянки_Парковочные_места);
+            this.relationFK_Категория_Автомобиль = new global::System.Data.DataRelation("FK_Категория_Автомобиль", new global::System.Data.DataColumn[] {
+                        this.tableКатегория.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableАвтомобиль.ID_категорииColumn}, false);
+            this.Relations.Add(this.relationFK_Категория_Автомобиль);
             this.relationFK_Парковочное_место_Стоянки_Парковочные_места = new global::System.Data.DataRelation("FK_Парковочное место_Стоянки_Парковочные места", new global::System.Data.DataColumn[] {
                         this.tableПарковочное_место.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableСтоянки_Парковочные_места.ID_Парковочного_местаColumn}, false);
             this.Relations.Add(this.relationFK_Парковочное_место_Стоянки_Парковочные_места);
-            this.relationFK_Автомобиль_Стоянка = new global::System.Data.DataRelation("FK_Автомобиль_Стоянка", new global::System.Data.DataColumn[] {
-                        this.tableАвтомобиль.КодColumn}, new global::System.Data.DataColumn[] {
-                        this.tableСтоянка.ID_АвтомобиляColumn}, false);
-            this.Relations.Add(this.relationFK_Автомобиль_Стоянка);
+            this.relationFK_Стоянка_Стоянки_Парковочные_места = new global::System.Data.DataRelation("FK_Стоянка_Стоянки_Парковочные места", new global::System.Data.DataColumn[] {
+                        this.tableСтоянка.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableСтоянки_Парковочные_места.ID_СтоянкиColumn}, false);
+            this.Relations.Add(this.relationFK_Стоянка_Стоянки_Парковочные_места);
             this.relationFK_ЕдИзмВремени_Стоянка = new global::System.Data.DataRelation("FK_ЕдИзмВремени_Стоянка", new global::System.Data.DataColumn[] {
                         this.tableЕдИзмВремени.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableСтоянка.ID_Ед_изм_времениColumn}, false);
             this.Relations.Add(this.relationFK_ЕдИзмВремени_Стоянка);
+            this.relationFK_Автомобиль_Стоянка = new global::System.Data.DataRelation("FK_Автомобиль_Стоянка", new global::System.Data.DataColumn[] {
+                        this.tableАвтомобиль.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableСтоянка.ID_АвтомобиляColumn}, false);
+            this.Relations.Add(this.relationFK_Автомобиль_Стоянка);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2885,23 +2885,23 @@ namespace Автостоянка {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public КатегорияRow КатегорияRow {
-                get {
-                    return ((КатегорияRow)(this.GetParentRow(this.Table.ParentRelations["FK_Категория_Автомобиль"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Категория_Автомобиль"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public КлиентRow КлиентRow {
                 get {
                     return ((КлиентRow)(this.GetParentRow(this.Table.ParentRelations["FK_Клиент_Автомобиль"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Клиент_Автомобиль"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public КатегорияRow КатегорияRow {
+                get {
+                    return ((КатегорияRow)(this.GetParentRow(this.Table.ParentRelations["FK_Категория_Автомобиль"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Категория_Автомобиль"]);
                 }
             }
             
@@ -3127,23 +3127,23 @@ namespace Автостоянка {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public СтоянкаRow СтоянкаRow {
-                get {
-                    return ((СтоянкаRow)(this.GetParentRow(this.Table.ParentRelations["FK_Стоянка_Стоянки_Парковочные места"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Стоянка_Стоянки_Парковочные места"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public Парковочное_местоRow Парковочное_местоRow {
                 get {
                     return ((Парковочное_местоRow)(this.GetParentRow(this.Table.ParentRelations["FK_Парковочное место_Стоянки_Парковочные места"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Парковочное место_Стоянки_Парковочные места"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public СтоянкаRow СтоянкаRow {
+                get {
+                    return ((СтоянкаRow)(this.GetParentRow(this.Table.ParentRelations["FK_Стоянка_Стоянки_Парковочные места"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Стоянка_Стоянки_Парковочные места"]);
                 }
             }
             
@@ -3498,23 +3498,23 @@ namespace Автостоянка {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public АвтомобильRow АвтомобильRow {
-                get {
-                    return ((АвтомобильRow)(this.GetParentRow(this.Table.ParentRelations["FK_Автомобиль_Стоянка"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Автомобиль_Стоянка"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ЕдИзмВремениRow ЕдИзмВремениRow {
                 get {
                     return ((ЕдИзмВремениRow)(this.GetParentRow(this.Table.ParentRelations["FK_ЕдИзмВремени_Стоянка"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_ЕдИзмВремени_Стоянка"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public АвтомобильRow АвтомобильRow {
+                get {
+                    return ((АвтомобильRow)(this.GetParentRow(this.Table.ParentRelations["FK_Автомобиль_Стоянка"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Автомобиль_Стоянка"]);
                 }
             }
             
