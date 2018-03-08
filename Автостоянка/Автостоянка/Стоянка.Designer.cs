@@ -415,14 +415,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button CreateButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn iDАвтомобиляDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn датаВремяНачалаDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn датаВремяОкончанияDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn суммаDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn оплаченоDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn времяDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn iDЕдИзмВремениDataGridViewTextBoxColumn;
         private АвтостоянкаDataSet автостоянкаDataSet;
         private System.Windows.Forms.BindingSource стоянкаBindingSource;
         private АвтостоянкаDataSetTableAdapters.СтоянкаTableAdapter стоянкаTableAdapter;
