@@ -5,8 +5,8 @@ using System.Text;
 
 namespace СтоянкаModel
 {
-    public interface ICalc
+    public interface ICalcPrice
     {
-        decimal GetPrice();
+        decimal GetPrice(Auto auto);
     }
 }

@@ -131,7 +131,6 @@ namespace Автостоянка
             this.Validate();
             this.стоянкаBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.автостоянкаDataSet);
-
         }
 
         private void стоянкаBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
@@ -139,180 +138,33 @@ namespace Автостоянка
             this.Validate();
             this.стоянкаBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.автостоянкаDataSet);
+        }
 
+        private void стоянкаDataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (!new DataGridViewColumn[] {
+                АвтомобильDataGridViewTextBoxColumn
+                ,ДатаВремяНачалаDataGridViewTextBoxColumn3
+                ,ДатаВремяОкончанияDataGridViewTextBoxColumn4
+                ,
+            }.Contains(стоянкаDataGridView.Columns[e.ColumnIndex])) return;
+
+            var dgvr = стоянкаDataGridView.Rows[e.RowIndex];
+            var drv = dgvr.DataBoundItem as DataRowView;
+            if (drv == null || drv.Row == null) return;
+
+            var стоянка = drv.Row as АвтостоянкаDataSet.СтоянкаRow;
+
+            var auto = new СтоянкаModel.Auto()
+            {
+                CategoryId = стоянка.АвтомобильRow.ID_категории,
+                EachPrice = стоянка.ЕдИзмВремениRow.Базовая_стоимость,
+                Start = стоянка.Дата_время_начала,
+                End = стоянка.Дата_время_окончания,
+                PlaceCount = стоянка.АвтомобильRow.Количество_занимаемых_мест,
+                TimeCount = стоянка.Время
+            };
+            стоянка.Сумма = auto.GetPrice();
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-public partial class Form7 : Form
-
-{
-
-    public Form7()
-
-    {
-
-        InitializeComponent();
-
-    }
-
-
-
-    private void Form7_Load(object sender, EventArgs e)
-
-    {
-
-        DataGridViewComboBoxColumn TpyeCol = new DataGridViewComboBoxColumn();
-
-        TpyeCol.Name = "Type";
-
-        TpyeCol.HeaderText = "Type";
-
-        TpyeCol.Items.AddRange(new string[] { "Home Phone", "Cell", "Work", "Email" });
-
-        this.dataGridView1.Columns.Add(TpyeCol);
-
-
-
-        this.dataGridView1.Columns.Add("Description", "Description");
-
-        this.dataGridView1.Rows.Add("Home Phone", "");
-
-
-
-        this.maskedTextBox = new MaskedTextBox();
-
-        this.maskedTextBox.Visible = false;
-
-        this.dataGridView1.Controls.Add(this.maskedTextBox);
-
-
-
-        this.dataGridView1.CellBeginEdit +=
-
-            new DataGridViewCellCancelEventHandler(dataGridView1_CellBeginEdit);
-
-
-
-        this.dataGridView1.CellEndEdit +=
-
-            new DataGridViewCellEventHandler(dataGridView1_CellEndEdit);
-
-
-
-        this.dataGridView1.Scroll += new ScrollEventHandler(dataGridView1_Scroll);
-
-    }
-
-
-
-    void dataGridView1_Scroll(object sender, ScrollEventArgs e)
-    {
-        if (this.maskedTextBox.Visible)
-        {
-            //we have to adjust the location for the MaskedTextBox while scrolling
-
-            Rectangle rect = this.dataGridView1.GetCellDisplayRectangle(this.dataGridView1.CurrentCell.ColumnIndex,this.dataGridView1.CurrentCell.RowIndex, true);
-
-            this.maskedTextBox.Location = rect.Location;
-        }
-
-    }
-
-
-
-    void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-    {
-        if (e.ColumnIndex == this.dataGridView1.Columns["Description"].Index && e.RowIndex < this.dataGridView1.NewRowIndex)
-
-        {
-
-            string type = this.dataGridView1["Type", e.RowIndex].Value.ToString();
-
-            if (type == "Home Phone" || type == "Cell" || type == "Work")
-
-            {
-
-                this.maskedTextBox.Mask = "(###)###-####";
-
-                Rectangle rect =
-                   this.dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-
-                this.maskedTextBox.Location = rect.Location;
-
-                this.maskedTextBox.Size = rect.Size;
-
-                this.maskedTextBox.Text = "";
-
-                if (this.dataGridView1[e.ColumnIndex, e.RowIndex].Value != null)
-
-                {
-
-                    this.maskedTextBox.Text = this.dataGridView1[e.ColumnIndex,
-                        e.RowIndex].Value.ToString();
-
-                }
-
-                this.maskedTextBox.Visible = true;
-
-            }
-
-            // if type is Email, do no show the MaskedTextBox
-
-        }
-
-    }
-
-
-
-    void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-
-    {
-
-        if (this.maskedTextBox.Visible)
-
-        {
-
-            this.dataGridView1.CurrentCell.Value = this.maskedTextBox.Text;
-
-            this.maskedTextBox.Visible = false;
-
-        }
-
-    }
-
-
-
-    MaskedTextBox maskedTextBox;
-
-}*/

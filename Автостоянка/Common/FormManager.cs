@@ -192,7 +192,7 @@ namespace Common
 
             var dialogResult = forms.Count == 0
                                             ? DialogResult.Yes
-                                            : MessageBox.Show("Same form is already opened", "Form manager");
+                                            : MessageBox.Show("Хотите открыть ещё одну?", "Такая форма уже окрыта", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             switch (dialogResult)
             {
                 case DialogResult.Yes:
@@ -204,7 +204,7 @@ namespace Common
                     form.Show();
                     break;
                 case DialogResult.No:
-                    ((BaseForm)forms.Last()).Activate();
+                    forms.Last().Activate();
                     break;
                 case DialogResult.Cancel:
                     return;

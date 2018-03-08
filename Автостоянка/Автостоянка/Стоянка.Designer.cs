@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Стоянка));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.EditButton = new System.Windows.Forms.Button();
             this.CreateButton = new System.Windows.Forms.Button();
@@ -57,14 +57,14 @@
             this.стоянкаDataGridView = new System.Windows.Forms.DataGridView();
             this.автомобильBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.едИзмВремениBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.КодDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.АвтомобильDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ДатаВремяНачалаDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ДатаВремяОкончанияDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.СуммаDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ОплаченоDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ВремяDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.МестаColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.автостоянкаDataSet)).BeginInit();
@@ -271,14 +271,14 @@
             this.стоянкаDataGridView.AutoGenerateColumns = false;
             this.стоянкаDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.стоянкаDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
+            this.КодDataGridViewTextBoxColumn1,
+            this.АвтомобильDataGridViewTextBoxColumn,
+            this.ДатаВремяНачалаDataGridViewTextBoxColumn3,
+            this.ДатаВремяОкончанияDataGridViewTextBoxColumn4,
+            this.СуммаDataGridViewTextBoxColumn5,
+            this.ОплаченоDataGridViewCheckBoxColumn1,
+            this.ВремяDataGridViewTextBoxColumn6,
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7,
             this.МестаColumn});
             this.стоянкаDataGridView.DataSource = this.стоянкаBindingSource;
             this.стоянкаDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -287,6 +287,7 @@
             this.стоянкаDataGridView.Size = new System.Drawing.Size(1148, 409);
             this.стоянкаDataGridView.TabIndex = 2;
             this.стоянкаDataGridView.VirtualMode = true;
+            this.стоянкаDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.стоянкаDataGridView_RowValidating);
             // 
             // автомобильBindingSource
             // 
@@ -298,85 +299,85 @@
             this.едИзмВремениBindingSource.DataMember = "ЕдИзмВремени";
             this.едИзмВремениBindingSource.DataSource = this.автостоянкаDataSet;
             // 
-            // dataGridViewTextBoxColumn1
+            // КодDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Код";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Код";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.КодDataGridViewTextBoxColumn1.DataPropertyName = "Код";
+            this.КодDataGridViewTextBoxColumn1.HeaderText = "Код";
+            this.КодDataGridViewTextBoxColumn1.Name = "КодDataGridViewTextBoxColumn1";
+            this.КодDataGridViewTextBoxColumn1.Visible = false;
             // 
-            // dataGridViewTextBoxColumn2
+            // АвтомобильDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ID Автомобиля";
-            this.dataGridViewTextBoxColumn2.DataSource = this.автомобильBindingSource;
-            this.dataGridViewTextBoxColumn2.DisplayMember = "Гос_номер";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Автомобиль";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 100;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn2.ValueMember = "Код";
+            this.АвтомобильDataGridViewTextBoxColumn.DataPropertyName = "ID Автомобиля";
+            this.АвтомобильDataGridViewTextBoxColumn.DataSource = this.автомобильBindingSource;
+            this.АвтомобильDataGridViewTextBoxColumn.DisplayMember = "Гос_номер";
+            this.АвтомобильDataGridViewTextBoxColumn.HeaderText = "Автомобиль";
+            this.АвтомобильDataGridViewTextBoxColumn.MinimumWidth = 100;
+            this.АвтомобильDataGridViewTextBoxColumn.Name = "АвтомобильDataGridViewTextBoxColumn";
+            this.АвтомобильDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.АвтомобильDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.АвтомобильDataGridViewTextBoxColumn.ValueMember = "Код";
             // 
-            // dataGridViewTextBoxColumn3
+            // ДатаВремяНачалаDataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Дата время начала";
-            dataGridViewCellStyle3.Format = "g";
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn3.FillWeight = 150F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Дата время начала";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 150;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
+            this.ДатаВремяНачалаDataGridViewTextBoxColumn3.DataPropertyName = "Дата время начала";
+            dataGridViewCellStyle1.Format = "g";
+            this.ДатаВремяНачалаDataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ДатаВремяНачалаDataGridViewTextBoxColumn3.FillWeight = 150F;
+            this.ДатаВремяНачалаDataGridViewTextBoxColumn3.HeaderText = "Дата время начала";
+            this.ДатаВремяНачалаDataGridViewTextBoxColumn3.MinimumWidth = 150;
+            this.ДатаВремяНачалаDataGridViewTextBoxColumn3.Name = "ДатаВремяНачалаDataGridViewTextBoxColumn3";
+            this.ДатаВремяНачалаDataGridViewTextBoxColumn3.Width = 150;
             // 
-            // dataGridViewTextBoxColumn4
+            // ДатаВремяОкончанияDataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Дата время окончания";
-            dataGridViewCellStyle4.Format = "g";
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn4.FillWeight = 150F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Дата время окончания";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 150;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 150;
+            this.ДатаВремяОкончанияDataGridViewTextBoxColumn4.DataPropertyName = "Дата время окончания";
+            dataGridViewCellStyle2.Format = "g";
+            this.ДатаВремяОкончанияDataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ДатаВремяОкончанияDataGridViewTextBoxColumn4.FillWeight = 150F;
+            this.ДатаВремяОкончанияDataGridViewTextBoxColumn4.HeaderText = "Дата время окончания";
+            this.ДатаВремяОкончанияDataGridViewTextBoxColumn4.MinimumWidth = 150;
+            this.ДатаВремяОкончанияDataGridViewTextBoxColumn4.Name = "ДатаВремяОкончанияDataGridViewTextBoxColumn4";
+            this.ДатаВремяОкончанияDataGridViewTextBoxColumn4.Width = 150;
             // 
-            // dataGridViewTextBoxColumn5
+            // СуммаDataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Сумма";
-            this.dataGridViewTextBoxColumn5.FillWeight = 150F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Сумма";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 150;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 150;
+            this.СуммаDataGridViewTextBoxColumn5.DataPropertyName = "Сумма";
+            this.СуммаDataGridViewTextBoxColumn5.FillWeight = 150F;
+            this.СуммаDataGridViewTextBoxColumn5.HeaderText = "Сумма";
+            this.СуммаDataGridViewTextBoxColumn5.MinimumWidth = 150;
+            this.СуммаDataGridViewTextBoxColumn5.Name = "СуммаDataGridViewTextBoxColumn5";
+            this.СуммаDataGridViewTextBoxColumn5.Width = 150;
             // 
-            // dataGridViewCheckBoxColumn1
+            // ОплаченоDataGridViewCheckBoxColumn1
             // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Оплачено";
-            this.dataGridViewCheckBoxColumn1.FillWeight = 75F;
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Оплачено";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 75;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Width = 75;
+            this.ОплаченоDataGridViewCheckBoxColumn1.DataPropertyName = "Оплачено";
+            this.ОплаченоDataGridViewCheckBoxColumn1.FillWeight = 75F;
+            this.ОплаченоDataGridViewCheckBoxColumn1.HeaderText = "Оплачено";
+            this.ОплаченоDataGridViewCheckBoxColumn1.MinimumWidth = 75;
+            this.ОплаченоDataGridViewCheckBoxColumn1.Name = "ОплаченоDataGridViewCheckBoxColumn1";
+            this.ОплаченоDataGridViewCheckBoxColumn1.Width = 75;
             // 
-            // dataGridViewTextBoxColumn6
+            // ВремяDataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Время";
-            this.dataGridViewTextBoxColumn6.FillWeight = 75F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Время";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 75;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 75;
+            this.ВремяDataGridViewTextBoxColumn6.DataPropertyName = "Время";
+            this.ВремяDataGridViewTextBoxColumn6.FillWeight = 75F;
+            this.ВремяDataGridViewTextBoxColumn6.HeaderText = "Время";
+            this.ВремяDataGridViewTextBoxColumn6.MinimumWidth = 75;
+            this.ВремяDataGridViewTextBoxColumn6.Name = "ВремяDataGridViewTextBoxColumn6";
+            this.ВремяDataGridViewTextBoxColumn6.Width = 75;
             // 
-            // dataGridViewTextBoxColumn7
+            // ЕдИзмВремениDataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "ID Ед изм времени";
-            this.dataGridViewTextBoxColumn7.DataSource = this.едИзмВремениBindingSource;
-            this.dataGridViewTextBoxColumn7.DisplayMember = "Наименование";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Ед изм времени";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 100;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn7.ValueMember = "Код";
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7.DataPropertyName = "ID Ед изм времени";
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7.DataSource = this.едИзмВремениBindingSource;
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7.DisplayMember = "Наименование";
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7.HeaderText = "Ед изм времени";
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7.MinimumWidth = 100;
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7.Name = "ЕдИзмВремениDataGridViewTextBoxColumn7";
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ЕдИзмВремениDataGridViewTextBoxColumn7.ValueMember = "Код";
             // 
             // МестаColumn
             // 
@@ -437,14 +438,14 @@
         private System.Windows.Forms.BindingSource автомобильBindingSource;
         private АвтостоянкаDataSetTableAdapters.ЕдИзмВремениTableAdapter едИзмВремениTableAdapter;
         private System.Windows.Forms.BindingSource едИзмВремениBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn КодDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn АвтомобильDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ДатаВремяНачалаDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ДатаВремяОкончанияDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn СуммаDataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ОплаченоDataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ВремяDataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ЕдИзмВремениDataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn МестаColumn;
     }
 }
