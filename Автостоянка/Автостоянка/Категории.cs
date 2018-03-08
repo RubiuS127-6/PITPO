@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Автостоянка
 {
-    public partial class Категории : BaseForm
+    public partial class Категории : Common.BaseForm
     {
         public Категории()
         {
@@ -23,7 +23,7 @@ namespace Автостоянка
 
         private void dataGridView1_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            SqlManipulation.Update(автостоянкаDataSet1, КатегорияTableAdapter, автостоянкаDataSet1.Категория);
+            Common.SqlManipulation.Update(автостоянкаDataSet1, КатегорияTableAdapter, автостоянкаDataSet1.Категория);
         }
     }
 }

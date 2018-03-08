@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Автостоянка
+namespace Common
 {
-    class SqlManipulation
+    public static class SqlManipulation
     {
         public static void Fill(object da, DataTable dt)
         {

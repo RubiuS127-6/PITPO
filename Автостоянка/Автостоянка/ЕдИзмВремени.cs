@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Автостоянка
 {
-    public partial class ЕдИзмВремени : BaseForm
+    public partial class ЕдИзмВремени : Common.BaseForm
     {
         public ЕдИзмВремени()
         {
@@ -23,7 +23,7 @@ namespace Автостоянка
 
         private void dataGridView1_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            SqlManipulation.Update(автостоянкаDataSet1, ЕдИзмВремениTableAdapter, автостоянкаDataSet1.ЕдИзмВремени);
+            Common.SqlManipulation.Update(автостоянкаDataSet1, ЕдИзмВремениTableAdapter, автостоянкаDataSet1.ЕдИзмВремени);
         }
     }
 }

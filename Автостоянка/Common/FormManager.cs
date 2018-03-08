@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-
-namespace Автостоянка
+namespace Common
 {
     public class FormManager : IFormManager
     {
@@ -20,11 +19,7 @@ namespace Автостоянка
         {
             var forms = Application.OpenForms;
 
-            foreach (var mainForm in forms.OfType<MainForm>())
-            {
-                MainForm = mainForm;
-                break;
-            }
+            MainForm = forms.OfType<Form>().FirstOrDefault(q => q.Name == "MainForm");
 
             if (MainForm == null)
             {
@@ -36,7 +31,7 @@ namespace Автостоянка
 
         #region Static Properties
 
-        internal static IFormManager Instance
+        public static IFormManager Instance
         {
             get
             {
@@ -54,11 +49,7 @@ namespace Автостоянка
             get { return MainForm.MdiChildren.Cast<BaseForm>().Union(_baseForms); }
         }
 
-        private MainForm MainForm
-        {
-            get;
-            set;
-        }
+        internal Form MainForm { get; set; }
 
         #endregion
 

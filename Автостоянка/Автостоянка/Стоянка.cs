@@ -9,47 +9,77 @@ using System.Windows.Forms;
 
 namespace Автостоянка
 {
-    public partial class Стоянка : BaseForm
+    public partial class Стоянка : Common.BaseForm
     {
+        private АвтостоянкаDataSetTableAdapters.КатегорияTableAdapter категорияTableAdapter;
+        private АвтостоянкаDataSetTableAdapters.КлиентTableAdapter клиентTableAdapter;
+
         public Стоянка()
         {
             InitializeComponent();
 
-            new DataGridViewCellFormatting(dataGridView1);
+            new Common.DataGridViewDateTimeCellFormatting(this.стоянкаDataGridView);
+
+            стоянкаDataGridView.CellValueNeeded += DataGridView1_CellValueNeeded;
+            стоянкаDataGridView.CellValuePushed += DataGridView1_CellValuePushed;
         }
 
-        private void DataGridView1_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        private void DataGridView1_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
         {
-            var drv = СтоянкаBindingSource.Current as DataRowView;
+            if (стоянкаDataGridView.Columns[e.ColumnIndex] != МестаColumn) return;
+
+            var dgvr = стоянкаDataGridView.Rows[e.RowIndex];
+            var drv = dgvr.DataBoundItem as DataRowView;
             if (drv == null || drv.Row == null) return;
 
             var стоянка = drv.Row as АвтостоянкаDataSet.СтоянкаRow;
 
             var паркМеста = стоянка.GetСтоянки_Парковочные_местаRows().Select(q => q.Парковочное_местоRow.Номер);
             if (паркМеста != null && паркМеста.Any())
-                паркМеста.Aggregate((s, q) => s + ", " + q);
-            //e.RowIndex
-            //var x = автостоянкаDataSet1.Стоянка.SelectMany(q => q.GetСтоянки_Парковочные_местаRows().Select(r=>r)).Select(q=>q.);
+                e.Value = паркМеста.Aggregate((s, q) => s + ", " + q);
+        }
+
+        private void DataGridView1_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+        {
+            if (стоянкаDataGridView.Columns[e.ColumnIndex] != МестаColumn) return;
+
+            var dgvr = стоянкаDataGridView.Rows[e.RowIndex];
+            var drv = dgvr.DataBoundItem as DataRowView;
+            if (drv == null || drv.Row == null) return;
+
+            var стоянка = drv.Row as АвтостоянкаDataSet.СтоянкаRow;
+
+            var паркМеста = стоянка.GetСтоянки_Парковочные_местаRows().Select(q => q.Парковочное_местоRow.Номер);
+            if (паркМеста != null && паркМеста.Any())
+                e.Value = паркМеста.Aggregate((s, q) => s + ", " + q);
+        }
+
+        private void DataGridView1_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            категорияTableAdapter = new АвтостоянкаDataSetTableAdapters.КатегорияTableAdapter();
+            клиентTableAdapter = new АвтостоянкаDataSetTableAdapters.КлиентTableAdapter();
 
-            this.категорияTableAdapter.Fill(this.автостоянкаDataSet1.Категория);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "автостоянкаDataSet.ЕдИзмВремени". При необходимости она может быть перемещена или удалена.
+            this.едИзмВремениTableAdapter.Fill(this.автостоянкаDataSet.ЕдИзмВремени);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "автостоянкаDataSet.Автомобиль". При необходимости она может быть перемещена или удалена.
+            this.автомобильTableAdapter.Fill(this.автостоянкаDataSet.Автомобиль);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "автостоянкаDataSet.Стоянка". При необходимости она может быть перемещена или удалена.
+            this.стоянкаTableAdapter.Fill(this.автостоянкаDataSet.Стоянка);
 
-            this.клиентTableAdapter.Fill(this.автостоянкаDataSet1.Клиент);
+            this.категорияTableAdapter.Fill(this.автостоянкаDataSet.Категория);
 
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "автостоянкаDataSet1.ЕдИзмВремени". При необходимости она может быть перемещена или удалена.
-            this.едИзмВремениTableAdapter.Fill(this.автостоянкаDataSet1.ЕдИзмВремени);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "автостоянкаDataSet1.Автомобиль". При необходимости она может быть перемещена или удалена.
-            this.автомобильTableAdapter.Fill(this.автостоянкаDataSet1.Автомобиль);
+            this.клиентTableAdapter.Fill(this.автостоянкаDataSet.Клиент);
 
-            СтоянкаTableAdapter.Fill(автостоянкаDataSet1.Стоянка);
+            стоянкаTableAdapter.Fill(автостоянкаDataSet.Стоянка);
         }
 
         private void dataGridView1_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            SqlManipulation.Update(автостоянкаDataSet1, СтоянкаTableAdapter, автостоянкаDataSet1.Стоянка);
+            Common.SqlManipulation.Update(автостоянкаDataSet, стоянкаTableAdapter, автостоянкаDataSet.Стоянка);
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
@@ -59,6 +89,22 @@ namespace Автостоянка
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void стоянкаBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.стоянкаBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.автостоянкаDataSet);
+
+        }
+
+        private void стоянкаBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.стоянкаBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.автостоянкаDataSet);
 
         }
     }

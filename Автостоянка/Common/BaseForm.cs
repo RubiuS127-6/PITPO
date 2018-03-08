@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Автостоянка
+namespace Common
 {
     public class BaseForm : Form
     {

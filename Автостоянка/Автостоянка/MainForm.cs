@@ -30,7 +30,7 @@ namespace Автостоянка
             var t = b.Tag as Type;
             if (t == null) return;
 
-            FormManager.Instance.OpenForm(t);
+            Common.FormManager.Instance.OpenForm(t);
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Автостоянка
 {
-    public partial class ПарковочныеМеста : BaseForm
+    public partial class ПарковочныеМеста : Common.BaseForm
     {
         public ПарковочныеМеста()
         {
@@ -23,7 +23,7 @@ namespace Автостоянка
 
         private void dataGridView1_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            SqlManipulation.Update(автостоянкаDataSet1, парковочное_местоTableAdapter, автостоянкаDataSet1.Парковочное_место);
+            Common.SqlManipulation.Update(автостоянкаDataSet1, парковочное_местоTableAdapter, автостоянкаDataSet1.Парковочное_место);
         }
     }
 }

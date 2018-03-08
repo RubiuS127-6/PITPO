@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -42,26 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DataGridViewCellFormatting.cs" />
-    <Compile Include="FormManager.cs" />
-    <Compile Include="IFormManager.cs" />
-    <Compile Include="SqlManipulation.cs" />
-    <Compile Include="АвтостоянкаDataSet.cs">
-      <DependentUpon>АвтостоянкаDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="АвтостоянкаDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>АвтостоянкаDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Автомобили.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Автомобили.Designer.cs">
       <DependentUpon>Автомобили.cs</DependentUpon>
+    </Compile>
+    <Compile Include="АвтостоянкаDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>АвтостоянкаDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Категории.cs">
       <SubType>Form</SubType>
@@ -132,17 +123,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
-    <None Include="Properties\DataSources\Автостоянка.АвтостоянкаDataSetTableAdapters.Парковочное_местоTableAdapter.datasource" />
-    <None Include="АвтостоянкаDataSet.xsc">
-      <DependentUpon>АвтостоянкаDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="АвтостоянкаDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>АвтостоянкаDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="АвтостоянкаDataSet.xss">
-      <DependentUpon>АвтостоянкаDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -152,6 +132,33 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="АвтостоянкаDataSet.xsc">
+      <DependentUpon>АвтостоянкаDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="АвтостоянкаDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>АвтостоянкаDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="АвтостоянкаDataSet.xss">
+      <DependentUpon>АвтостоянкаDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{30ea9184-7907-4c80-9095-4f998cbf43a9}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\СтоянкаModel\СтоянкаModel.csproj">
+      <Project>{a9e2eb1e-4369-4a0c-ac4a-8cf7c32fed21}</Project>
+      <Name>СтоянкаModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
