@@ -55,16 +55,16 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.стоянкаBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.стоянкаDataGridView = new System.Windows.Forms.DataGridView();
-            this.автомобильBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.едИзмВремениBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.КодDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.АвтомобильDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.автомобильBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ДатаВремяНачалаDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ДатаВремяОкончанияDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.СуммаDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ОплаченоDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ВремяDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ЕдИзмВремениDataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.едИзмВремениBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.МестаColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.автостоянкаDataSet)).BeginInit();
@@ -147,7 +147,6 @@
             this.стоянкаBindingNavigator.BindingSource = this.стоянкаBindingSource;
             this.стоянкаBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.стоянкаBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.стоянкаBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.стоянкаBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -161,7 +160,7 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.стоянкаBindingNavigatorSaveItem});
-            this.стоянкаBindingNavigator.Location = new System.Drawing.Point(0, 437);
+            this.стоянкаBindingNavigator.Location = new System.Drawing.Point(0, 28);
             this.стоянкаBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.стоянкаBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.стоянкаBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -282,22 +281,11 @@
             this.МестаColumn});
             this.стоянкаDataGridView.DataSource = this.стоянкаBindingSource;
             this.стоянкаDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.стоянкаDataGridView.Location = new System.Drawing.Point(0, 28);
+            this.стоянкаDataGridView.Location = new System.Drawing.Point(0, 53);
             this.стоянкаDataGridView.Name = "стоянкаDataGridView";
             this.стоянкаDataGridView.Size = new System.Drawing.Size(1148, 409);
             this.стоянкаDataGridView.TabIndex = 2;
             this.стоянкаDataGridView.VirtualMode = true;
-            this.стоянкаDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.стоянкаDataGridView_RowValidating);
-            // 
-            // автомобильBindingSource
-            // 
-            this.автомобильBindingSource.DataMember = "Автомобиль";
-            this.автомобильBindingSource.DataSource = this.автостоянкаDataSet;
-            // 
-            // едИзмВремениBindingSource
-            // 
-            this.едИзмВремениBindingSource.DataMember = "ЕдИзмВремени";
-            this.едИзмВремениBindingSource.DataSource = this.автостоянкаDataSet;
             // 
             // КодDataGridViewTextBoxColumn1
             // 
@@ -317,6 +305,11 @@
             this.АвтомобильDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.АвтомобильDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.АвтомобильDataGridViewTextBoxColumn.ValueMember = "Код";
+            // 
+            // автомобильBindingSource
+            // 
+            this.автомобильBindingSource.DataMember = "Автомобиль";
+            this.автомобильBindingSource.DataSource = this.автостоянкаDataSet;
             // 
             // ДатаВремяНачалаDataGridViewTextBoxColumn3
             // 
@@ -378,6 +371,11 @@
             this.ЕдИзмВремениDataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ЕдИзмВремениDataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ЕдИзмВремениDataGridViewTextBoxColumn7.ValueMember = "Код";
+            // 
+            // едИзмВремениBindingSource
+            // 
+            this.едИзмВремениBindingSource.DataMember = "ЕдИзмВремени";
+            this.едИзмВремениBindingSource.DataSource = this.автостоянкаDataSet;
             // 
             // МестаColumn
             // 

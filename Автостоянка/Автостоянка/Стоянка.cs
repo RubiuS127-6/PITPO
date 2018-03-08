@@ -104,6 +104,9 @@ namespace Автостоянка
             парковочное_местоTableAdapter.Fill(автостоянкаDataSet.Парковочное_место);
 
             стоянки_Парковочные_местаTableFill();
+
+            стоянкаDataGridView.RowValidated += dataGridView1_RowValidated;
+            стоянкаDataGridView.RowValidating += стоянкаDataGridView_RowValidating;
         }
 
         void стоянки_Парковочные_местаTableFill()
@@ -126,13 +129,6 @@ namespace Автостоянка
 
         }
 
-        private void стоянкаBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.стоянкаBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.автостоянкаDataSet);
-        }
-
         private void стоянкаBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
             this.Validate();
@@ -146,10 +142,15 @@ namespace Автостоянка
                 АвтомобильDataGridViewTextBoxColumn
                 ,ДатаВремяНачалаDataGridViewTextBoxColumn3
                 ,ДатаВремяОкончанияDataGridViewTextBoxColumn4
-                ,
+                ,ВремяDataGridViewTextBoxColumn6
+                ,ЕдИзмВремениDataGridViewTextBoxColumn7
             }.Contains(стоянкаDataGridView.Columns[e.ColumnIndex])) return;
 
+
+
             var dgvr = стоянкаDataGridView.Rows[e.RowIndex];
+            if (!dgvr.Visible) return;
+
             var drv = dgvr.DataBoundItem as DataRowView;
             if (drv == null || drv.Row == null) return;
 
@@ -164,6 +165,7 @@ namespace Автостоянка
                 PlaceCount = стоянка.АвтомобильRow.Количество_занимаемых_мест,
                 TimeCount = стоянка.Время
             };
+
             стоянка.Сумма = auto.GetPrice();
         }
     }
