@@ -40,18 +40,17 @@ namespace Автостоянка
 
             if (местаStr == null) return;
 
-            var местаStrArr = местаStr.Split(',');
-
-            стоянки_Парковочные_местаTableFill();
+            местаStr = new string(местаStr.ToArray().Select(q => char.IsPunctuation(q) ? ',' : q).ToArray());
+            var местаStrArr = местаStr.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             var местаArr = местаStrArr.Select(q => q.Trim()).Select(место => автостоянкаDataSet.Парковочное_место.FirstOrDefault(q => q.Номер == место)).Where(q => q != null).ToList();
-            var местаArrOrig = автостоянкаDataSet.Парковочное_место.Where(место => место.GetСтоянки_Парковочные_местаRows().Any(q => q.ID_Стоянки == стоянка.Код)).Where(q => q != null).ToList();
+            var местаArrOrig = автостоянкаDataSet.Стоянки_Парковочные_места.Where(q => q.ID_Стоянки == стоянка.Код).Where(q => q != null).ToList();
 
-            if (местаArrOrig.Select(q => q.Код).Except(местаArr.Select(q => q.Код)).Any() || местаArr.Select(q => q.Код).Except(местаArrOrig.Select(q => q.Код)).Any())
+            if (местаArrOrig.Select(q => q.ID_Парковочного_места).Except(местаArr.Select(q => q.Код)).Any() || местаArr.Select(q => q.Код).Except(местаArrOrig.Select(q => q.Код)).Any())
             {
-                foreach (var стоянки_Парковочные_места in автостоянкаDataSet.Стоянки_Парковочные_места.Where(q => q.ID_Стоянки == стоянка.Код).ToList())
+                foreach (var стоянки_Парковочные_места in местаArrOrig)
                 {
-                    автостоянкаDataSet.Стоянки_Парковочные_места.RemoveСтоянки_Парковочные_местаRow(стоянки_Парковочные_места);
+                    стоянки_Парковочные_местаTableAdapter.Delete(стоянки_Парковочные_места.Код, стоянки_Парковочные_места.ID_Стоянки, стоянки_Парковочные_места.ID_Парковочного_места);
                 }
 
                 foreach (var парковочное_место in местаArr)
@@ -59,8 +58,8 @@ namespace Автостоянка
                     автостоянкаDataSet.Стоянки_Парковочные_места.AddСтоянки_Парковочные_местаRow(стоянка, парковочное_место);
                 }
 
-                Common.SqlManipulation.Update(автостоянкаDataSet, стоянки_Парковочные_местаTableAdapter, автостоянкаDataSet.Стоянки_Парковочные_места);
-                стоянки_Парковочные_местаTableFill();
+                //Common.SqlManipulation.Update(автостоянкаDataSet, стоянки_Парковочные_местаTableAdapter, автостоянкаDataSet.Стоянки_Парковочные_места);
+                стоянки_Парковочные_местаTableAdapter.Update(автостоянкаDataSet.Стоянки_Парковочные_места);
             }
         }
 
@@ -76,7 +75,7 @@ namespace Автостоянка
 
             стоянки_Парковочные_местаTableFill();
 
-            var Стоянки_Парковочные_местапаркМеста = автостоянкаDataSet.Стоянки_Парковочные_места.Where(q => q.ID_Стоянки == стоянка.Код).Select(q => q.Код).ToList();
+            var Стоянки_Парковочные_местапаркМеста = автостоянкаDataSet.Стоянки_Парковочные_места.Where(q => q.ID_Стоянки == стоянка.Код).Select(q => q.ID_Парковочного_места).ToList();
             var местаArrOrig = автостоянкаDataSet.Парковочное_место.Where(q => Стоянки_Парковочные_местапаркМеста.Contains(q.Код)).Select(q => q.Номер).ToList();
 
             if (местаArrOrig != null && местаArrOrig.Any())
@@ -150,8 +149,8 @@ namespace Автостоянка
 
             var dgvr = стоянкаDataGridView.Rows[e.RowIndex];
             if (!dgvr.Visible) return;
-
-            var drv = dgvr.DataBoundItem as DataRowView;
+            DataRowView drv = null;
+            try { drv = dgvr.DataBoundItem as DataRowView; } catch { }
             if (drv == null || drv.Row == null) return;
 
             var стоянка = drv.Row as АвтостоянкаDataSet.СтоянкаRow;
